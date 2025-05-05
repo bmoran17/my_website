@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require('path');
 
 const app = express();
 const PORT = 8000;
@@ -17,4 +18,5 @@ async function connect() {
 }
 
 connect();
+app.use(express.static(path.join(__dirname, 'public')));
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));
